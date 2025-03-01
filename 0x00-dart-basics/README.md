@@ -217,3 +217,111 @@ print(formatProducts(products));
 📂 **Filename:** `0x02-sort-and-transform.dart`  
 
 </details>
+
+<br>
+
+<details>
+  <summary><code>0x03-movie-analysis.dart</code> - Movie Analysis & Data Processing</summary>
+
+
+### **Motive**  
+- Master **sets & uniqueness**  
+- Work with **enums** for structured data  
+- Use **functional techniques** (`expand`, `map`, `fold`, `reduce`)  
+- Apply **pattern matching (`switch-case`)**  
+
+---
+
+## **📝 Problem Statement**  
+You are building a **movie recommendation system**. Given a list of users and the movies they have watched, your task is to **analyze movie preferences**.
+
+### **1️⃣ Given Data**
+```dart
+enum Genre { Action, Comedy, Drama, SciFi, Horror }
+
+List<Map<String, dynamic>> users = [
+  {
+    "name": "Alice",
+    "age": 25,
+    "movies": [
+      {"title": "Inception", "genre": Genre.SciFi},
+      {"title": "Avengers", "genre": Genre.Action},
+      {"title": "Joker", "genre": Genre.Drama}
+    ]
+  },
+  {
+    "name": "Bob",
+    "age": 30,
+    "movies": [
+      {"title": "The Dark Knight", "genre": Genre.Action},
+      {"title": "Interstellar", "genre": Genre.SciFi},
+      {"title": "The Hangover", "genre": Genre.Comedy}
+    ]
+  },
+  {
+    "name": "Charlie",
+    "age": 22,
+    "movies": [
+      {"title": "Avengers", "genre": Genre.Action},
+      {"title": "The Conjuring", "genre": Genre.Horror},
+      {"title": "Joker", "genre": Genre.Drama}
+    ]
+  }
+];
+```
+
+---
+
+## **2️⃣ Tasks to Implement**
+### **1. Get All Unique Movies Watched (Across All Users)**
+- Return a **list of unique movie titles**, sorted alphabetically.  
+- Use a **Set** to ensure uniqueness.  
+
+### **2. Find the Most Watched Genre**
+- Determine which **movie genre appears the most** across all users.  
+- Use **`fold()` or `map()` + `reduce()`** to count occurrences.  
+- Return the most-watched genre **as a `Genre` enum value**.  
+
+### **3. Recommend a Movie Based on Age Group**
+- Implement a function `recommendMovie(int age)` that returns a **movie recommendation** based on age:  
+  - **Under 25** → Recommend **Sci-Fi**  
+  - **25-35** → Recommend **Action**  
+  - **Above 35** → Recommend **Comedy**  
+- Use a **switch-case with pattern matching** to determine the recommendation.  
+
+---
+
+## **3️⃣ Expected Output**
+```dart
+print(getUniqueMovies(users));  
+// Output: ["Avengers", "Inception", "Interstellar", "Joker", "The Conjuring", "The Dark Knight", "The Hangover"]
+
+print(getMostWatchedGenre(users));  
+// Output: Genre.Action
+
+print(recommendMovie(22));  
+// Output: "We recommend watching a Sci-Fi movie!"
+
+print(recommendMovie(30));  
+// Output: "We recommend watching an Action movie!"
+
+print(recommendMovie(40));  
+// Output: "We recommend watching a Comedy movie!"
+```
+
+---
+
+## **🌟 Bonus Challenge**
+1. **Group Users by Their Favorite Genre**  
+   - Find each user’s most-watched genre and group users accordingly.  
+2. **Filter Users Who Have Watched a Specific Genre**  
+   - Implement `filterUsersByGenre(Genre genre)`, which returns a **list of users** who have watched at least one movie in the given genre.  
+
+---
+
+📂 **Filename:** `0x03-movie-analysis.dart`  
+
+🚀 **Solve the challenge and push your code to GitHub!**  
+</details>
+
+---
